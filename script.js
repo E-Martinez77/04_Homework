@@ -86,7 +86,7 @@ var questions =
 
 ];
 
-// Functions dependent on how I want to write code; as little as two steps within fucntion to complete task *focus*
+// Functions dependent on how I want to write code; as little as two steps within function to complete task *focus*
 
 // function to start the quiz
 

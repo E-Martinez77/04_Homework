@@ -1,0 +1,27 @@
+#high-score {
+  position: absolute;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+#timer {
+  float: right;
+  position: relative;
+  margin-right: 30px;
+  margin-top: 30px;
+}
+
+#panel1 {
+  position: fixed;
+  margin-top: 134px;
+  place-content: center;
+}
+
+#header {
+  text-align: center;
+}
+
+#content {
+  text-align: center;
+  padding: 90px;
+}
