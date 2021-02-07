@@ -38,8 +38,13 @@
   </div> -->
 
   <div class="row">
-    <div class="div">
-      timer: <span id="timerDisplay">0</span>
+
+    <div class="col">
+      timer: <span id="timerDisplay"></span>
+    </div>
+
+    <div class="col">
+      Score: <span id="scoreDisplay"></span>
     </div>
   </div>
   <div id="startDisplay" class="container">
@@ -54,10 +59,13 @@
 
   <div id="questionDisplay" class="container" class="hide">
     <h1 id="question"></h1>
-    <button id="answer1" class="buttons"></button>
-    <button id="answer2" class="buttons"></button>
-    <button id="answer3" class="buttons"></button>
-    <button id="answer4" class="buttons"></button>
+    <div id="answers" class="container">
+
+      <button id="answer1" class="buttons" class="hide"></button>
+      <button id="answer2" class="buttons" class="hide"></button>
+      <button id="answer3" class="buttons" class="hide"></button>
+      <button id="answer4" class="buttons" class="hide"></button>
+    </div>
 
   </div>
 

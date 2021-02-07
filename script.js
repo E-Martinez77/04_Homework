@@ -49,11 +49,20 @@ let questions = [
     choiceC: "For loops",
     choiceD: "console.log",
   },
+  {
+    question: "",
+    correct: "",
+    choiceA: "",
+    choiceB: "",
+    choiceC: "",
+    choiceD: "",
+  },
 ];
 
 let startButton = document.getElementById("startButton");
 let startDisplay = document.getElementById("startDisplay");
 let questionDisplay = document.getElementById("questionDisplay");
+let scoreDisplay = document.getElementById("scoreDisplay");
 let buttons = document.querySelectorAll(".buttons");
 let timerSpan = document.getElementById("timerDisplay");
 let question = document.getElementById("question");
@@ -63,54 +72,78 @@ let answer3 = document.getElementById("answer3");
 let answer4 = document.getElementById("answer4");
 let cycleIndex = 0;
 
+//Starts the Game
 startButton.addEventListener("click", function () {
-  // alert();
   startButton.setAttribute("class", "hide");
   startDisplay.setAttribute("class", "hide");
   questionDisplay.classList.remove("hide");
+  document.getElementById("answers").style.visibility = "visible";
+
   timer = setInterval(timerFunction, 1000);
   timerSpan.textContent = initialTimer;
+  scoreDisplay.textContent = userScore;
 
   displayArray();
 });
 
+//Displays Object To Page
 function displayArray() {
-  //probably need a for loop
   question.textContent = questions[cycleIndex].question;
   answer1.textContent = questions[cycleIndex].choiceA;
   answer2.textContent = questions[cycleIndex].choiceB;
   answer3.textContent = questions[cycleIndex].choiceC;
   answer4.textContent = questions[cycleIndex].choiceD;
+  console.log("DisplayArray Called");
+  console.log("Cycle Index: " + cycleIndex);
+  scoreDisplay.textContent = userScore;
 
-  //There needs to be something here to validate if a correct answer was clicked
+  if (cycleIndex === 5 || initialTimer === 0) {
+    storeScore();
+    console.log("End of questions.");
+    endGame();
+  }
 }
 
+//Validates answer, adds + 20 to score, logs score to console
 buttons.forEach(function (button) {
   button.addEventListener("click", function (event) {
     event.preventDefault();
     if (event.target.textContent === questions[cycleIndex].correct) {
       correctAnswer();
-      userScore++;
       console.log("User Score: " + userScore);
     } else incorrectAnswer();
   });
 });
 
+//FIGURE OUT WHY THIS ISN'T WORKING
+//If the answer was correct, advances cycleIndex, displays Array with conditional to end game
+// function correctAnswer() {
+//   console.log("correct Answer Function: " + scoreString);
+//   console.log("cycleIndex: " + cycleIndex);
+//   console.log("correctAnswer Called");
+//   cycleIndex++;
+//   console.log("Before If statement");
+//   if (cycleIndex === 100) {
+//     displayArray();
+//     console.log("If statement");
+//   } else {
+//     // endGame();
+//     console.log("Else statement");
+//     console.log("Endgame Called: correctAnswer");
+//   }
+// }
+
 function correctAnswer() {
-  console.log("Correct");
   cycleIndex++;
-  if (cycleIndex <= questions.length) {
-    displayArray();
-  } else {
-    //Set score to local storage to pull on results page
-    endGame();
-  }
+  userScore += 20;
+  displayArray();
 }
 
 function incorrectAnswer() {
   cycleIndex++;
-  initialTimer -= 10;
+  initialTimer -= 20;
   displayArray();
+  console.log("Incorrect Answer");
 }
 
 function timerFunction() {
@@ -119,14 +152,23 @@ function timerFunction() {
   timerSpan.textContent = initialTimer;
   if (initialTimer <= 0) {
     //save score to local storage function to save to local storage DRY
+    console.log("Timer Function fired");
+    storeScore();
+    clearInterval(timer);
     //jump results page
-    endGame();
   }
 }
 
 function endGame() {
+  console.log("endGame");
   //call whenever game ends and redirect
   clearInterval(timer);
+  console.log("Endgame Called");
+  location.replace("resultpage.html");
+}
+
+function storeScore() {
+  localStorage.setItem("User Score", userScore.toString());
 }
 
 //Clear Interval
