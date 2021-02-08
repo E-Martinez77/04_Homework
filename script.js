@@ -71,6 +71,7 @@ let answer2 = document.getElementById("answer2");
 let answer3 = document.getElementById("answer3");
 let answer4 = document.getElementById("answer4");
 let cycleIndex = 0;
+let pulledStorage = localStorage.getItem("User Score");
 
 //Starts the Game
 startButton.addEventListener("click", function () {
@@ -110,7 +111,6 @@ buttons.forEach(function (button) {
     event.preventDefault();
     if (event.target.textContent === questions[cycleIndex].correct) {
       correctAnswer();
-      console.log("User Score: " + userScore);
     } else incorrectAnswer();
   });
 });
@@ -168,7 +168,14 @@ function endGame() {
 }
 
 function storeScore() {
-  localStorage.setItem("User Score", userScore.toString());
+  let scoreArray = [];
+  let scoreText = "User Score";
+  scoreArray.push(userScore);
+  console.log("Pulled Storage: " + pulledStorage);
+  // let testPush = savedScore.push("Userscore", userScore.toString);
+
+  // items.push({'id':5});
+  localStorage.setItem(scoreText, userScore);
 }
 
 //Clear Interval
@@ -178,4 +185,6 @@ function storeScore() {
 
 /* References: 
 https://www.w3schools.com/jsref/met_document_addeventlistener.asp
+https://stackoverflow.com/questions/18954777/how-to-add-a-new-object-key-value-pair-to-an-array-in-javascript
+https://stackoverflow.com/questions/40843773/localstorage-keeps-overwriting-my-data
 */
