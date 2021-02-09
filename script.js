@@ -168,14 +168,16 @@ function endGame() {
 }
 
 function storeScore() {
-  let scoreArray = [];
-  let scoreText = "User Score";
-  scoreArray.push(userScore);
+  // let scoreArray = [];
+  let scoreText = "User Score: ";
+  // scoreArray.push(userScore);
   console.log("Pulled Storage: " + pulledStorage);
   // let testPush = savedScore.push("Userscore", userScore.toString);
+  // JSON.stringify
 
+  // JSON.parse - to recall
   // items.push({'id':5});
-  localStorage.setItem(scoreText, userScore);
+  localStorage.setItem("userScore", userScore);
 }
 
 //Clear Interval
