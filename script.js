@@ -189,4 +189,6 @@ function storeScore() {
 https://www.w3schools.com/jsref/met_document_addeventlistener.asp
 https://stackoverflow.com/questions/18954777/how-to-add-a-new-object-key-value-pair-to-an-array-in-javascript
 https://stackoverflow.com/questions/40843773/localstorage-keeps-overwriting-my-data
+https://stackoverflow.com/questions/14997984/print-an-arrayobject-without-comma-seperator/14998030
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
 */

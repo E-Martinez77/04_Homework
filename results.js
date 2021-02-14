@@ -12,7 +12,8 @@ let existingScore = localStorage.getItem("userScore");
 let scoreList = [];
 let storedArray;
 const resultNames = document.getElementById("resultNames");
-let previousScores = localStorage.getItem("Stored Array");
+let previousScores = localStorage.getItem("Continuous Array");
+let testArray = previousScores.split(",");
 
 // function getOnnit() {
 //   if (localStorage) {
@@ -38,6 +39,41 @@ let previousScores = localStorage.getItem("Stored Array");
 // getPrevious push new info into it
 //pull existing array, push new information into it. set to local storage
 
-getOnnit();
+function anotherTry() {
+  JSON.stringify(existingScore); //Pulling in the existing userScore
+  JSON.stringify(previousScores); //Pull existing content for "Continuous array"
+
+  scoreList.push(previousScores); //pushes existing array into scoreList as an Object
+
+  let enterName = prompt(
+    `Wow! You scored ${existingScore}! Enter your initials`
+  ); //input for initials
+
+  scoreList.push(enterName + " " + existingScore);
+
+  // let newObject = JSON.stringify(scoreList); //do I want to store each index as it's own line?
+
+  // localStorage.setItem(JSON.parse("Continuous Array", scoreList));
+
+  // let joinedList = scoreList.join(",");
+
+  JSON.stringify(localStorage.setItem("Continuous Array", scoreList));
+
+  let continuousArray = JSON.stringify(
+    localStorage.getItem("Continuous Array")
+  );
+
+  for (let i = 0; i < testArray.length; i++) {
+    let pTag = document.createElement("p");
+    pTag.textContent = testArray[i];
+    resultNames.appendChild(pTag);
+  }
+
+  console.log("continousArray variable: " + continuousArray);
+}
+
+// getOnnit();
+
+anotherTry();
 
 // set variable, parse it in variable
