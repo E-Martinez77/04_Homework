@@ -164,7 +164,7 @@ function endGame() {
   //call whenever game ends and redirect
   clearInterval(timer);
   console.log("Endgame Called");
-  // location.replace("resultpage.html");
+  location.replace("resultpage.html");
 }
 
 function storeScore() {
