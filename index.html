@@ -15,51 +15,50 @@
 
 <body>
 
-  <!-- starting page view high score, questions to cycle through, a high score page with input to hide after information in -->
-
-
-  <!-- <div>
-
-    <h3>View High Score</h3>
-    <h3 id="highScore"></h3>
-    <h3 id="timer">Timer</h3>
-
-  </div>
-
-
-  <div id="panel1">
-
-    <h1 id="header">Coding Quiz Challenge!</h1>
-
-    <h3 id="content">Try to answer the following code-related questions within the time limit.
-      Keep in mind that incorrect answers will penalize your score/time by
-      Ten seconds!</h3>
-
-  </div> -->
 
   <div class="row">
 
     <div class="col">
-      timer: <span id="timerDisplay"></span>
+      <div class="container text-center">
+
+        Timer: <span id="timerDisplay"></span>
+      </div>
     </div>
 
     <div class="col">
-      Score: <span id="scoreDisplay"></span>
+      <div class="container text-center">
+
+        Score: <span id="scoreDisplay"></span>
+      </div>
     </div>
-  </div>
-  <div id="startDisplay" class="container">
-    <p>Try to answer the following code-related questions within the time limit.
-      Keep in mind that incorrect answers will penalize your score/time by
-      Ten seconds!</p>
   </div>
 
   <div class="container">
-    <a name="" id="startButton" class="btn btn-primary" href="#" role="button">Start</a>
+    <div id="startDisplay" class="container">
+      <p>Try to answer the following code-related questions within the time limit.
+        Keep in mind that incorrect answers will penalize your score/time by
+        Ten seconds!</p>
+    </div>
+
+  </div>
+
+  <div class="container align-center">
+
+    <div class="col-1">
+      <a name="" id="startButton" class="btn btn-primary text-center" href="#" role="button">Start</a>
+
+    </div>
   </div>
 
   <div id="questionDisplay" class="container" class="hide">
     <h1 id="question"></h1>
     <div id="answers" class="container">
+
+      <!-- <a name="" id="answer1" class="btn btn-primary" class="buttons" class="hide" href="#" role="button"></a>
+      <a name="" id="answer2" class="btn btn-primary" class="buttons" class="hide" href="#" role="button"></a>
+      <a name="" id="answer3" class="btn btn-primary" class="buttons" class="hide" href="#" role="button"></a>
+      <a name="" id="answer4" class="btn btn-primary" class="buttons" class="hide" href="#" role="button"></a> -->
+
 
       <button id="answer1" class="buttons" class="hide"></button>
       <button id="answer2" class="buttons" class="hide"></button>

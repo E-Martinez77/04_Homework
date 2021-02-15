@@ -38,7 +38,7 @@ function anotherTry() {
     JSON.stringify(existingScore);
 
     let enterName = prompt(
-      `Wow! You scored ${existingScore}! Enter your initials`
+      `Wow! You scored ${existingScore}! Enter your name.`
     );
 
     scoreList.push(enterName + " " + existingScore);
