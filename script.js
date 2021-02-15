@@ -1,7 +1,7 @@
 let timer;
 
-let userScore = 0; //display to page
-let initialTimer = 75; //set interval function later on. Display
+let userScore = 0;
+let initialTimer = 75;
 
 let finishers = [];
 
@@ -73,7 +73,6 @@ let answer4 = document.getElementById("answer4");
 let cycleIndex = 0;
 let pulledStorage = localStorage.getItem("User Score");
 
-//Starts the Game
 startButton.addEventListener("click", function () {
   startButton.setAttribute("class", "hide");
   startDisplay.setAttribute("class", "hide");
@@ -87,25 +86,20 @@ startButton.addEventListener("click", function () {
   displayArray();
 });
 
-//Displays Object To Page
 function displayArray() {
   question.textContent = questions[cycleIndex].question;
   answer1.textContent = questions[cycleIndex].choiceA;
   answer2.textContent = questions[cycleIndex].choiceB;
   answer3.textContent = questions[cycleIndex].choiceC;
   answer4.textContent = questions[cycleIndex].choiceD;
-  console.log("DisplayArray Called");
-  console.log("Cycle Index: " + cycleIndex);
   scoreDisplay.textContent = userScore;
 
   if (cycleIndex === 5 || initialTimer === 0) {
     storeScore();
-    console.log("End of questions.");
     endGame();
   }
 }
 
-//Validates answer, adds + 20 to score, logs score to console
 buttons.forEach(function (button) {
   button.addEventListener("click", function (event) {
     event.preventDefault();
@@ -114,24 +108,6 @@ buttons.forEach(function (button) {
     } else incorrectAnswer();
   });
 });
-
-//FIGURE OUT WHY THIS ISN'T WORKING
-//If the answer was correct, advances cycleIndex, displays Array with conditional to end game
-// function correctAnswer() {
-//   console.log("correct Answer Function: " + scoreString);
-//   console.log("cycleIndex: " + cycleIndex);
-//   console.log("correctAnswer Called");
-//   cycleIndex++;
-//   console.log("Before If statement");
-//   if (cycleIndex === 100) {
-//     displayArray();
-//     console.log("If statement");
-//   } else {
-//     // endGame();
-//     console.log("Else statement");
-//     console.log("Endgame Called: correctAnswer");
-//   }
-// }
 
 function correctAnswer() {
   cycleIndex++;
@@ -143,47 +119,26 @@ function incorrectAnswer() {
   cycleIndex++;
   initialTimer -= 20;
   displayArray();
-  console.log("Incorrect Answer");
 }
 
 function timerFunction() {
-  //decrease time by 1
   initialTimer--;
   timerSpan.textContent = initialTimer;
   if (initialTimer <= 0) {
-    //save score to local storage function to save to local storage DRY
-    console.log("Timer Function fired");
     storeScore();
     clearInterval(timer);
-    //jump results page
   }
 }
 
 function endGame() {
-  console.log("endGame");
-  //call whenever game ends and redirect
   clearInterval(timer);
-  console.log("Endgame Called");
   location.replace("resultpage.html");
 }
 
 function storeScore() {
-  // let scoreArray = [];
   let scoreText = "User Score: ";
-  // scoreArray.push(userScore);
-  console.log("Pulled Storage: " + pulledStorage);
-  // let testPush = savedScore.push("Userscore", userScore.toString);
-  // JSON.stringify
-
-  // JSON.parse - to recall
-  // items.push({'id':5});
   localStorage.setItem("userScore", userScore);
 }
-
-//Clear Interval
-// I am trying to cycle through each index, one at a time
-// Once an index has displayed, then
-//8, 4 & 5, 20-23, 26, 27 & 28, STUDY THESE!!!!
 
 /* References: 
 https://www.w3schools.com/jsref/met_document_addeventlistener.asp
